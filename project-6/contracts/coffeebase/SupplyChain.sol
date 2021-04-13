@@ -96,43 +96,43 @@ contract SupplyChain {
 
   // Define a modifier that checks if an item.state of a upc is Processed
   modifier processed(uint _upc) {
-
+    require(items[_upc].itemState == State.Processed);
     _;
   }
   
   // Define a modifier that checks if an item.state of a upc is Packed
   modifier packed(uint _upc) {
-
+    require(items[_upc].itemState == State.Packed);
     _;
   }
 
   // Define a modifier that checks if an item.state of a upc is ForSale
   modifier forSale(uint _upc) {
-
+    require(items[_upc].itemState == State.ForSale);
     _;
   }
 
   // Define a modifier that checks if an item.state of a upc is Sold
   modifier sold(uint _upc) {
-
+    require(items[_upc].itemState == State.Sold);
     _;
   }
   
   // Define a modifier that checks if an item.state of a upc is Shipped
   modifier shipped(uint _upc) {
-
+    require(items[_upc].itemState == State.Shipped);
     _;
   }
 
   // Define a modifier that checks if an item.state of a upc is Received
   modifier received(uint _upc) {
-
+    require(items[_upc].itemState == State.Received);
     _;
   }
 
   // Define a modifier that checks if an item.state of a upc is Purchased
   modifier purchased(uint _upc) {
-    
+    require(items[_upc].itemState == State.Purchased);
     _;
   }
 
@@ -160,6 +160,7 @@ contract SupplyChain {
     // Increment sku
     sku = sku + 1;
     // Emit the appropriate event
+    emit Harvested(_upc);
     
   }
 
@@ -173,7 +174,7 @@ contract SupplyChain {
     // Update the appropriate fields
     
     // Emit the appropriate event
-    
+    emit Processed(_upc);
   }
 
   // Define a function 'packItem' that allows a farmer to mark an item 'Packed'
@@ -186,7 +187,7 @@ contract SupplyChain {
     // Update the appropriate fields
     
     // Emit the appropriate event
-    
+    emit Packed(_upc);
   }
 
   // Define a function 'sellItem' that allows a farmer to mark an item 'ForSale'
@@ -199,7 +200,7 @@ contract SupplyChain {
     // Update the appropriate fields
     
     // Emit the appropriate event
-    
+    emit ForSale(_upc);
   }
 
   // Define a function 'buyItem' that allows the disributor to mark an item 'Sold'
@@ -219,7 +220,7 @@ contract SupplyChain {
     // Transfer money to farmer
     
     // emit the appropriate event
-    
+    emit Sold(_upc);
   }
 
   // Define a function 'shipItem' that allows the distributor to mark an item 'Shipped'
@@ -233,7 +234,7 @@ contract SupplyChain {
     // Update the appropriate fields
     
     // Emit the appropriate event
-    
+    emit Shipped(_upc);
   }
 
   // Define a function 'receiveItem' that allows the retailer to mark an item 'Received'
@@ -246,7 +247,7 @@ contract SupplyChain {
     // Update the appropriate fields - ownerID, retailerID, itemState
     
     // Emit the appropriate event
-    
+    emit Received(_upc);
   }
 
   // Define a function 'purchaseItem' that allows the consumer to mark an item 'Purchased'
@@ -259,7 +260,7 @@ contract SupplyChain {
     // Update the appropriate fields - ownerID, consumerID, itemState
     
     // Emit the appropriate event
-    
+    emit Purchased(_upc);
   }
 
   // Define a function 'fetchItemBufferOne' that fetches the data
@@ -280,14 +281,14 @@ contract SupplyChain {
     
   return 
   (
-  itemSKU,
-  itemUPC,
-  ownerID,
-  originFarmerID,
-  originFarmName,
-  originFarmInformation,
-  originFarmLatitude,
-  originFarmLongitude
+  items[_upc].itemSKU,
+  items[_upc].itemUPC,
+  items[_upc].ownerID,
+  items[_upc].originFarmerID,
+  items[_upc].originFarmName,
+  items[_upc].originFarmInformation,
+  items[_upc].originFarmLatitude,
+  items[_upc].originFarmLongitude
   );
   }
 
@@ -310,15 +311,15 @@ contract SupplyChain {
     
   return 
   (
-  itemSKU,
-  itemUPC,
-  productID,
-  productNotes,
-  productPrice,
-  itemState,
-  distributorID,
-  retailerID,
-  consumerID
+  items[_upc].itemSKU,
+  items[_upc].itemUPC,
+  items[_upc].productID,
+  items[_upc].productNotes,
+  items[_upc].productPrice,
+  items[_upc].itemState,
+  items[_upc].distributorID,
+  items[_upc].retailerID,
+  items[_upc].consumerID
   );
   }
 }
