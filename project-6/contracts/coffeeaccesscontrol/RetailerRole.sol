@@ -15,7 +15,7 @@ contract RetailerRole {
   
   // In the constructor make the address that deploys this contract the 1st retailer
   constructor() public {
-    _addRetailer(account);
+    _addRetailer(msg.sender);
   }
 
   // Define a modifier that checks to see if msg.sender has the appropriate role
