@@ -304,17 +304,17 @@ contract SupplyChain {
   {
   // Assign values to the 8 parameters
   
-    
+  Item memory item = items[_upc];
   return 
   (
-  items[_upc].sku,
-  items[_upc].upc,
-  items[_upc].ownerID,
-  items[_upc].originFarmerID,
-  items[_upc].originFarmName,
-  items[_upc].originFarmInformation,
-  items[_upc].originFarmLatitude,
-  items[_upc].originFarmLongitude
+  item.sku,
+  item.upc,
+  item.ownerID,
+  item.originFarmerID,
+  item.originFarmName,
+  item.originFarmInformation,
+  item.originFarmLatitude,
+  item.originFarmLongitude
   );
   }
 
@@ -326,7 +326,7 @@ contract SupplyChain {
   uint    productID,
   string  productNotes,
   uint    productPrice,
-  uint    itemState,
+  State    itemState,
   address distributorID,
   address retailerID,
   address consumerID
@@ -334,18 +334,18 @@ contract SupplyChain {
   {
     // Assign values to the 9 parameters
   
-    
+  Item memory item = items[_upc];
   return 
   (
-  items[_upc].sku,
-  items[_upc].upc,
-  items[_upc].productID,
-  items[_upc].productNotes,
-  items[_upc].productPrice,
-  items[_upc].itemState,
-  items[_upc].distributorID,
-  items[_upc].retailerID,
-  items[_upc].consumerID
+  item.sku,
+  item.upc,
+  item.productID,
+  item.productNotes,
+  item.productPrice,
+  item.itemState,
+  item.distributorID,
+  item.retailerID,
+  item.consumerID
   );
   }
 }
