@@ -337,8 +337,8 @@ contract SupplyChain {
     
   return 
   (
-  items[_upc].itemSKU,
-  items[_upc].itemUPC,
+  items[_upc].sku,
+  items[_upc].upc,
   items[_upc].productID,
   items[_upc].productNotes,
   items[_upc].productPrice,
