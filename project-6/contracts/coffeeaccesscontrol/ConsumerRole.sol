@@ -11,6 +11,7 @@ contract ConsumerRole {
   event ConsumerRemoved(address indexed account);
 
   // Define a struct 'consumers' by inheriting from 'Roles' library, struct Role
+  using Roles for Roles.Role;
   Roles.Role private consumers;
 
   // In the constructor make the address that deploys this contract the 1st consumer
