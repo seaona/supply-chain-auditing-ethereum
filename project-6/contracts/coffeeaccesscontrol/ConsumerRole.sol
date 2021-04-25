@@ -1,4 +1,5 @@
-pragma solidity ^0.4.24;
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.4;
 
 // Import the library 'Roles'
 import "./Roles.sol";
@@ -15,7 +16,7 @@ contract ConsumerRole {
   Roles.Role private consumers;
 
   // In the constructor make the address that deploys this contract the 1st consumer
-  constructor() public {
+  constructor() {
     _addConsumer(msg.sender);
   }
 
