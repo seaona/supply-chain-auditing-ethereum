@@ -2,15 +2,6 @@
 ## Introduction
 This repository containts an Ethereum DApp that demonstrates a Supply Chain flow between a Seller and Buyer. The user story is similar to any commonly used supply chain process. A Seller can add items to the inventory system stored in the blockchain. A Buyer can purchase such items from the inventory system. Additionally a Seller can mark an item as Shipped, and similarly a Buyer can mark an item as Received.
 
-The DApp User Interface when running should look like...
-
-![truffle test](images/ftc_product_overview.png)
-
-![truffle test](images/ftc_farm_details.png)
-
-![truffle test](images/ftc_product_details.png)
-
-![truffle test](images/ftc_transaction_history.png)
 
 ## UML Diagrams
 ### State Diagram
@@ -31,11 +22,11 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-Please make sure you've already installed ganache-cli, Truffle and enabled MetaMask extension in your browser.
+Please make sure you've already installed the following dependencies:
+* Ganache-cli: uses ethereumjs to simulate full client behavior and make developing Ethereum applications faster, easier, and safer.
+* Truffle: the the most popular dev framework for Ethereum 
+* MetaMask extension in your browser: for interacting with the blockchain
 
-```
-Give examples (to be clarified)
-```
 
 ### Installing
 
@@ -101,13 +92,20 @@ In a separate terminal window, launch the DApp:
 ```
 npm run dev
 ```
+The DApp User Interface when running should look like...
+
+![truffle test](images/ftc_product_overview.png)
+
+![truffle test](images/ftc_farm_details.png)
+
+![truffle test](images/ftc_product_details.png)
+
+![truffle test](images/ftc_transaction_history.png)
 
 ## Built With
 
 * [Ethereum](https://www.ethereum.org/) - Ethereum is a decentralized platform that runs smart contracts
-* [IPFS](https://ipfs.io/) - IPFS is the Distributed Web | A peer-to-peer hypermedia protocol to make the web faster, safer, and more open.
 * [Truffle Framework](http://truffleframework.com/) - Truffle is the most popular development framework for Ethereum with a mission to make your life a whole lot easier.
-
 
 
 ## Deployment
@@ -121,4 +119,6 @@ npm run dev
 
 * For verifying the contract run: `truffle run verify SupplyChain --network rinkeby`
 
+* For interacting with the contract, you can use directly EtherScan as follows:
 
+![ether scan](images/interacting-with-contract.gif)
