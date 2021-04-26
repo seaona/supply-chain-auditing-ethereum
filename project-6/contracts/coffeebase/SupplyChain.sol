@@ -265,7 +265,7 @@ contract SupplyChain is Ownable, ConsumerRole, DistributorRole, RetailerRole, Fa
   // Use the above modifiers to check if the item is received
   // Call modifier to check if upc has passed previous supply chain stage
   // Access Control List enforced by calling Smart Contract / DApp
-  function purchaseItem(uint _upc) public onlyConsumer purchased(_upc) {
+  function purchaseItem(uint _upc) public onlyConsumer received(_upc) {
     // Update the appropriate fields - ownerID, consumerID, itemState
       items[_upc].ownerID = msg.sender;
       items[_upc].consumerID = payable(msg.sender);

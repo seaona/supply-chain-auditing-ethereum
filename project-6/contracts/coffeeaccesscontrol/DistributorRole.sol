@@ -15,7 +15,7 @@ contract DistributorRole {
   Roles.Role private distributors;
 
   // In the constructor make the address that deploys this contract the 1st distributor
-  constructor() public {
+  constructor() {
     _addDistributor(msg.sender);
   }
 

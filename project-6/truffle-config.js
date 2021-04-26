@@ -1,3 +1,9 @@
+require('dotenv').config();
+const HDWalletProvider = require('truffle-hdwallet-provider');
+const infuraKey = `${process.env.INFURA_NODE}`;
+const mnemonic = `${process.env.METAMASK_MNEMONIC}`;
+const etherscanApiKey = `${process.env.ETHERSCAN_API_KEY}`
+
 module.exports = {
   networks: {
     development: {
@@ -5,6 +11,12 @@ module.exports = {
       port: 8545,
       network_id: "*", // Match any network id
       websockets: true
+    },
+    rinkeby: {
+      provider: () => new HDWalletProvider(mnemonic, `https://rinkeby.infura.io/v3/${infuraKey}`),
+        network_id: 4,
+        gas: 4500000,
+        gasPrice: 10000000000
     }
   },
   compilers: {
@@ -19,5 +31,11 @@ module.exports = {
       //  evmVersion: "byzantium"
       // }
     }
+  },
+  plugins: [
+    'truffle-plugin-verify'
+  ],
+  api_keys: {
+    etherscan: etherscanApiKey
   }
 };

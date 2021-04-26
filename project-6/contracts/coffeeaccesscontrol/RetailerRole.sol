@@ -15,7 +15,7 @@ contract RetailerRole {
   Roles.Role private retailers;
   
   // In the constructor make the address that deploys this contract the 1st retailer
-  constructor() public {
+  constructor() {
     _addRetailer(msg.sender);
   }
 
