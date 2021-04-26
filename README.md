@@ -1,5 +1,5 @@
 # Supply chain & data auditing
-
+## Introduction
 This repository containts an Ethereum DApp that demonstrates a Supply Chain flow between a Seller and Buyer. The user story is similar to any commonly used supply chain process. A Seller can add items to the inventory system stored in the blockchain. A Buyer can purchase such items from the inventory system. Additionally a Seller can mark an item as Shipped, and similarly a Buyer can mark an item as Received.
 
 The DApp User Interface when running should look like...
@@ -12,6 +12,18 @@ The DApp User Interface when running should look like...
 
 ![truffle test](images/ftc_transaction_history.png)
 
+## UML Diagrams
+### State Diagram
+![state diagram](UML-diagrams/UML-State-Diagram.jpg)
+
+### Sequence Diagram
+![state diagram](UML-diagrams/UML-Sequence-Diagram.jpg)
+
+### Class Diagram
+![state diagram](UML-diagrams/UML-Class-Diagram.jpg)
+
+### Activity Diagram
+![state diagram](UML-diagrams/UML-Activity-Diagram.jpg)
 
 ## Getting Started
 
@@ -93,18 +105,20 @@ npm run dev
 ## Built With
 
 * [Ethereum](https://www.ethereum.org/) - Ethereum is a decentralized platform that runs smart contracts
-* [IPFS](https://ipfs.io/) - IPFS is the Distributed Web | A peer-to-peer hypermedia protocol
-to make the web faster, safer, and more open.
+* [IPFS](https://ipfs.io/) - IPFS is the Distributed Web | A peer-to-peer hypermedia protocol to make the web faster, safer, and more open.
 * [Truffle Framework](http://truffleframework.com/) - Truffle is the most popular development framework for Ethereum with a mission to make your life a whole lot easier.
 
 
-## Authors
 
-See also the list of [contributors](https://github.com/your/project/contributors.md) who participated in this project.
+## Deployment
+* Deployment has been done on Rinkeby testnet running `truffle migrate --reset --network rinkeby`
 
-## Acknowledgments
+* Contract address: [0xfb1a92921D625FB74BC6b19C9AF0457c8502e961](https://rinkeby.etherscan.io/address/0xfb1a92921D625FB74BC6b19C9AF0457c8502e961#code)
 
-* Solidity
-* Ganache-cli
-* Truffle
-* IPFS
+* Transaction hash: [0x15012a581b84550c2ff948873159b9843f709a3e59e84fe3c67973d8996ca910](https://rinkeby.etherscan.io/tx/0x15012a581b84550c2ff948873159b9843f709a3e59e84fe3c67973d8996ca910)
+
+* Contract is verified using truffle-plugin-verify as a dev dependency, and configuring the plugin on truffle-config.js.
+
+* For verifying the contract run: `truffle run verify SupplyChain --network rinkeby`
+
+
